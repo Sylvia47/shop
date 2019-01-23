@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<div id="wrapper">
+  <nav id="storename">
+    <img src="{% static 'main/img/LOGO.png' %}" alt="影像">  
+    <nav>
+    <li><a href="{% url 'main:main' %}">首頁</a></li>
+     {% if user.is_authenticated %}
+    <li><a href="{% url 'signint:logout' %}">登出 ({{ user.username }})</a></li>
+  	{% else %}
+    <li><a href="{% url 'signin:login' %}">登入</a></li>
+    <li><a href="{% url 'signin:register' %}">註冊</a></li>
+    {% endif %}
+</nav> 
+  </nav>
+  <aside>
+    <table id="branch">
+  <tr>
+    <td><a href="{% url 'items:category01' %}">休閒零食</a></td>
+  </tr>
+      
+  <tr>
+    <td><a href="{% url 'items:category02' %}">糖果餅乾</a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'items:category03' %}">蛋糕甜點/冰品</a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'items:category04' %}">沖泡飲品/飲料</a></td>
+  </tr>
+  <tr>
+    <td><a href="{% url 'items:category05' %}">米麵主食</a></td>
+ 
+  </tr>
+    <tr>
+    <td><a href="{% url 'items:category06' %}">即食美味</a></td>
+  </tr>    
+</table>
+
+
+  </aside>
